@@ -1,6 +1,6 @@
 Bacteria bob = new Bacteria(); 
-Colorblock1 left = new Colorblock1();
-Colorblock2 right = new Colorblock2();//declare bacteria variables here   
+Blackblock left = new Blackblock();
+Whiteblock right = new Whiteblock();//declare bacteria variables here   
  void setup()   
  {     
  	rectMode(CENTER);
@@ -15,12 +15,14 @@ Colorblock2 right = new Colorblock2();//declare bacteria variables here
  }  
  class Bacteria    
  {     
- 	int bacR, bacG, bacB; 
+ 	int bacR, bacG, bacB;
+ 	float lum;
  	Bacteria()
  	{
     bacR = (int)(Math.random() * 256);
  	bacG = (int)(Math.random() * 256);
  	bacB = (int)(Math.random() * 256);
+ 	lum = 0.2126*(float)(bacR) + 0.7152*(float)(bacG) + 0.0722*(float)(bacB);
  	}
  	void show()
  	{
@@ -29,36 +31,41 @@ Colorblock2 right = new Colorblock2();//declare bacteria variables here
  	}
  	void move()
  	{
+ 		if (lum < 127.5){
 
- 	}
- }    
- class Colorblock1
+ 		}
+ 		else if (lum = 128){
+
+ 		}
+ 		else{
+
+ 		}
+	  }
+ 	
+ 	}  
+ class Blackblock
  {
- 	int leftcolorR, leftcolorG, leftcolorB;
- 	Colorblock1()
+ 	int blackcolor;
+ 	Blackblock()
  	{
- 		leftcolorR = (int)(Math.random() * 256);
- 		leftcolorG = (int)(Math.random() * 256);
- 		leftcolorB = (int)(Math.random() * 256);	
+		blackcolor = 0;	
  	}
 	void show()
 	{
-		fill(leftcolorR,leftcolorG,leftcolorB);
+		fill((float)(blackcolor));
  		rect(150,300,100,100);
  	}
  }
- class Colorblock2
+ class Whiteblock
  {
- 	int rightcolorR, rightcolorG, rightcolorB;
- 	Colorblock2()
+ 	int whitecolor;
+ 	Whiteblock()
  	{
- 		rightcolorR = (int)(Math.random() * 256);
- 		rightcolorG = (int)(Math.random() * 256);
- 		rightcolorB = (int)(Math.random() * 256);	
+		whitecolor = 255;
  	}
  	void show()
 	{
-		fill(rightcolorR,rightcolorG,rightcolorB);
+		fill((float)(whitecolor));
  		rect(450,300,100,100);
  	}
  }
